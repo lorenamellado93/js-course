@@ -21,6 +21,7 @@ diceEl.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+console.log(activePlayer);
 let playing = true;
 
 const switchPlayer = function () {
@@ -62,7 +63,7 @@ buttonHold.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //2. Check if player's score is >=100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       //Finish the Game
       playing = false;
       diceEl.classList.add('hidden');
@@ -83,14 +84,15 @@ buttonHold.addEventListener('click', function () {
 buttonNew.addEventListener('click', function () {
   //Restart the bottons
   playing = true;
+
   currentScore = 0;
-  activePlayer = 0;
   scores[0] = 0;
   scores[1] = 1;
   //Set scores to 0
   score0El.textContent = 0;
   score1El.textContent = 0;
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
 
   //Hidden dice
   diceEl.classList.add('hidden');
